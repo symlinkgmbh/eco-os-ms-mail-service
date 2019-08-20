@@ -1,0 +1,38 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "The mail service has pre configured mail templates and holds the mail server communication. It comes with pre configured settings to send mails over the sendgrid service. You can change the mail server settings in the configuration service.",
+    "version": "1.0.0",
+    "title": "2ndLock mail service",
+    "termsOfService": "http://2ndLock.com",
+    "contact": {
+      "email": "jens@symlink.de"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "heartbeat",
+      "description": "Get current heartbeat from service"
+    }
+  ],
+  "schemes": ["http"],
+  "paths": {
+    "/heartbeat": {
+      "get": {
+        "tags": ["heartbeat"],
+        "summary": "get current heartbeat from service",
+        "description": "response with current service health",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}

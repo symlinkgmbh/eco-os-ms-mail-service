@@ -1,0 +1,12 @@
+{
+  "environment": "development",
+  "version": "0.0.1",
+  "buildDate": "NOW",
+  "buildSHA": "4-8-15-16-23-42",
+  "name": "eco-os-mail-service",
+  "serviceId": "007",
+  "server": {
+    "port": "8006"
+  },
+  "logVerbose": true
+}
