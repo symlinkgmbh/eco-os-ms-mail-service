@@ -62,7 +62,6 @@
   </style>
   <style type="text/css" media="screen">
       @media screen {
-         /*Thanks Outlook 2013! http://goo.gl/XLxpyl*/
         td, h1, h2, h3 {
           font-family: 'Open Sans', 'Arial', 'sans-serif' !important;
         }
@@ -135,7 +134,7 @@
                   <tr>
                     <td>
                       <div><!--[if mso]>
-                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://" style="height:50px;v-text-anchor:middle;width:200px;" arcsize="8%" stroke="f" fillcolor="#178f8f">
+                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{appURL}}" style="height:50px;v-text-anchor:middle;width:200px;" arcsize="8%" stroke="f" fillcolor="#178f8f">
                           <w:anchorlock/>
                           <center>
                         <![endif]-->

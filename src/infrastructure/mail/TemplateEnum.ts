@@ -23,4 +23,5 @@ export enum Templates {
   activateAccount = "ActivateAccount.ecotpl",
   resetPassword = "ResetPassword.ecotpl",
   changePassword = "ChangePassword.ecotpl",
+  federationFailed = "FederationFailed.ecotpl",
 }

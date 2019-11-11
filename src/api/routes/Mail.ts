@@ -58,6 +58,9 @@ export class MailRoute extends AbstractRoutes implements PkApi.IRoute {
     appURL: "",
     webURL: "",
   };
+  private postFederationMailPattern: PkApi.IValidatorPattern = {
+    to: "",
+  };
 
   constructor(app: Application) {
     super(app);
@@ -70,6 +73,7 @@ export class MailRoute extends AbstractRoutes implements PkApi.IRoute {
     this.accountDeleteMail();
     this.resetPasswordMail();
     this.changePasswordMail();
+    this.federationFailedMail();
   }
 
   private accountLockedMail(): void {
@@ -143,6 +147,22 @@ export class MailRoute extends AbstractRoutes implements PkApi.IRoute {
         this.validatorService.validate(req.body, this.postChangePasswordPattern);
         this.mailController
           .sendChangePasswordMail(req.body as MsMail.IMailResetPassword)
+          .then((result) => {
+            res.send(result);
+          })
+          .catch((err) => {
+            next(err);
+          });
+      });
+  }
+
+  private federationFailedMail(): void {
+    this.getApp()
+      .route("/mail/federation/fail")
+      .post((req: Request, res: Response, next: NextFunction) => {
+        this.validatorService.validate(req.body, this.postFederationMailPattern);
+        this.mailController
+          .sendFederationFailMail(req.body as MsMail.IMailFederationFailed)
           .then((result) => {
             res.send(result);
           })

@@ -112,10 +112,23 @@ export class MailController {
     return await this.mailService.sendMail(mailOpt);
   }
 
+  public async sendFederationFailMail(mail: MsMail.IMailFederationFailed): Promise<any> {
+    const tpl = await this.resolveMailTemplate(Templates.federationFailed, mail);
+    const config = await this.getMailConfig();
+    const mailOpt: IMailOptions = {
+      from: config.sender,
+      subject: "Federation failed",
+      html: tpl.toString(),
+      to: mail.to,
+    };
+
+    return await this.mailService.sendMail(mailOpt);
+  }
+
   private async resolveMailTemplate(template: string, props: any): Promise<string> {
     try {
       const tpl = await fs.readFile(path.join(process.cwd(), "lib/infrastructure/templates/" + template));
-      const renderedTpl = await mustache.render(tpl.toString(), props);
+      const renderedTpl = mustache.render(tpl.toString(), props);
       return renderedTpl;
     } catch (err) {
       throw new CustomRestError(
