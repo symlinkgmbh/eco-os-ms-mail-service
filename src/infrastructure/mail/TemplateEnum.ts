@@ -19,9 +19,15 @@
 
 export enum Templates {
   accountLocked = "AccountLocked.ecotpl",
+  accountLockedText = "AccountLockedText.ecotpl",
   accountDelete = "AccountDelete.ecotpl",
+  accountDeleteText = "AccountDeleteText.ecotpl",
   activateAccount = "ActivateAccount.ecotpl",
+  activateAccountText = "ActivateAccountText.ecotpl",
   resetPassword = "ResetPassword.ecotpl",
+  resetPasswordText = "ResetPasswordText.ecotpl",
   changePassword = "ChangePassword.ecotpl",
+  changePasswordText = "ChangePasswordText.ecotpl",
   federationFailed = "FederationFailed.ecotpl",
+  federationFailedText = "FederationFailedText.ecotpl",
 }

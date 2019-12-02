@@ -49,11 +49,13 @@ export class MailController {
 
   public async sendAccountLockedMail(mail: MsMail.IMailAccountLocked): Promise<void> {
     const tpl = await this.resolveMailTemplate(Templates.accountLocked, mail);
+    const tplText = await this.resolveMailTemplate(Templates.accountLockedText, mail);
     const config = await this.getMailConfig();
     const mailOpt: IMailOptions = {
       from: config.sender,
       subject: "We have locked your account",
       html: tpl.toString(),
+      text: tplText,
       to: mail.to,
     };
 
@@ -62,11 +64,13 @@ export class MailController {
 
   public async sendActivateAccountMail(mail: MsMail.IMailActivateAccount): Promise<any> {
     const tpl = await this.resolveMailTemplate(Templates.activateAccount, mail);
+    const tplText = await this.resolveMailTemplate(Templates.activateAccountText, mail);
     const config = await this.getMailConfig();
     const mailOpt: IMailOptions = {
       from: config.sender,
       subject: "Please activate your account",
       html: tpl.toString(),
+      text: tplText,
       to: mail.to,
     };
 
@@ -75,11 +79,13 @@ export class MailController {
 
   public async sendAccountDeleteMail(mail: MsMail.IMailDeleteAccount): Promise<any> {
     const tpl = await this.resolveMailTemplate(Templates.accountDelete, mail);
+    const tplText = await this.resolveMailTemplate(Templates.accountDeleteText, mail);
     const config = await this.getMailConfig();
     const mailOpt: IMailOptions = {
       from: config.sender,
       subject: "Please confirm account delete",
       html: tpl.toString(),
+      text: tplText,
       to: mail.to,
     };
 
@@ -88,11 +94,13 @@ export class MailController {
 
   public async sendResetPasswordMail(mail: MsMail.IMailResetPassword): Promise<any> {
     const tpl = await this.resolveMailTemplate(Templates.resetPassword, mail);
+    const tplText = await this.resolveMailTemplate(Templates.resetPasswordText, mail);
     const config = await this.getMailConfig();
     const mailOpt: IMailOptions = {
       from: config.sender,
       subject: "Please change your password",
       html: tpl.toString(),
+      text: tplText,
       to: mail.to,
     };
 
@@ -101,11 +109,13 @@ export class MailController {
 
   public async sendChangePasswordMail(mail: MsMail.IMailResetPassword): Promise<any> {
     const tpl = await this.resolveMailTemplate(Templates.changePassword, mail);
+    const tplText = await this.resolveMailTemplate(Templates.changePasswordText, mail);
     const config = await this.getMailConfig();
     const mailOpt: IMailOptions = {
       from: config.sender,
       subject: "Please change your password",
       html: tpl.toString(),
+      text: tplText,
       to: mail.to,
     };
 
@@ -114,11 +124,13 @@ export class MailController {
 
   public async sendFederationFailMail(mail: MsMail.IMailFederationFailed): Promise<any> {
     const tpl = await this.resolveMailTemplate(Templates.federationFailed, mail);
+    const tplText = await this.resolveMailTemplate(Templates.federationFailedText, mail);
     const config = await this.getMailConfig();
     const mailOpt: IMailOptions = {
       from: config.sender,
       subject: "Federation failed",
       html: tpl.toString(),
+      text: tplText,
       to: mail.to,
     };
 
